@@ -1,4 +1,3 @@
-
 package proyecto.computrabajo;
 
 public class ProyectoComputrabajo {
