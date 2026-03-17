@@ -1,10 +1,15 @@
 //APORTE DE DANIEL
 package Paneles;
 
-public class PanelPostulaciones extends javax.swing.JPanel {
+public class PanelPostulaciones extends javax.swing.JPanel implements ITraceablePanel {
 
     public PanelPostulaciones() {
         initComponents();
+    }
+    
+    @Override
+    public String getTitle() {
+        return "Postulantes";
     }
 
     @SuppressWarnings("unchecked")
