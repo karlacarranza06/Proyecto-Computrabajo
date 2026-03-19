@@ -1,7 +1,8 @@
 //APORTE DE KARLA
 
 
-//Comentario prueba git 2.0
+//COMENTARIO PRUEBA PARA VIDE DE COMMIT xd
+
 package Paneles;
 
 import utils.Navigation;
