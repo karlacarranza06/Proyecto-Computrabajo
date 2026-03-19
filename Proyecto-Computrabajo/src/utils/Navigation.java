@@ -33,7 +33,7 @@ public class Navigation {
         return instance;
     }
     
-    private Navigation() { }
+    public Navigation() { }
     
     public void setBreadcrumbsLabel(javax.swing.JLabel breadcrumbsLabel) {
         this.breadcrumbsLabel = breadcrumbsLabel;
