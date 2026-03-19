@@ -1,7 +1,7 @@
 //APORTE DE KARLA
 
 
-//Comentario prueba git
+//Comentario prueba git 2.0
 package Paneles;
 
 import utils.Navigation;
