@@ -7,6 +7,7 @@ import Paneles.PanelConfiguracion;
 import Paneles.PanelDashboard;
 import Paneles.PanelGestionUsuarios;
 import Paneles.PanelGestionVacantes;
+import Paneles.PanelLogin;
 import Paneles.PanelPostulaciones;
 import java.awt.BorderLayout;
 import javax.swing.SwingUtilities;
@@ -15,10 +16,10 @@ import utils.Navigation;
 public class MainFrame extends javax.swing.JFrame {
     private static final Navigation navigation = Navigation.getInstance();
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainFrame.class.getName());
+    
 
     public MainFrame() {
         initComponents();
-
         navigation.setMainPanel(pnlMainContent);
         navigation.setBreadcrumbsLabel(lblBreadCrumbs);
 
@@ -26,18 +27,52 @@ public class MainFrame extends javax.swing.JFrame {
             navigation.setMainFrame(this);
         });
         pnlMainContent.setLayout(new BorderLayout());
-        
-        navigation.navigateTo(new PanelDashboard());
+        ocultarMenu();
+        mostrarLogin();
+    }
+    
+    //Para que solo se vea el login nomás y el logo, solo es prototipo aún
+    private void ocultarMenu() {
+        btnMenuDashboard.setVisible(false);
+        btnMenuPositions.setVisible(false);
+        btnMenuApplicants.setVisible(false);
+        btnMenuApplicants1.setVisible(false);
+        btnMenuSettings.setVisible(false);
+    }
+    
+    //mostrar login en vez de pantalla principal
+    private void mostrarLogin() {
+        pnlMainContent.removeAll();
+        pnlMainContent.add(new PanelLogin(this));
+        pnlMainContent.revalidate();
+        pnlMainContent.repaint();
     }
 
-    @SuppressWarnings("unchecked")
+    public void mostrarSistema() {
+
+        // Mostrar menú
+        btnMenuDashboard.setVisible(true);
+        btnMenuPositions.setVisible(true);
+        btnMenuApplicants.setVisible(true);
+        btnMenuApplicants1.setVisible(true);
+        btnMenuSettings.setVisible(true);
+
+        //Cargar Pantalla principal
+        pnlMainContent.removeAll();
+        pnlMainContent.add(new PanelDashboard());
+        pnlMainContent.revalidate();
+        pnlMainContent.repaint();
+    }
+
+    
+   @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblLogo = new javax.swing.JLabel();
         btnMenuSettings = new javax.swing.JButton();
         btnMenuDashboard = new javax.swing.JButton();
         btnMenuPositions = new javax.swing.JButton();
@@ -53,9 +88,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/CompuTrabajoIcon.png"))); // NOI18N
-        jLabel1.setText("CompuTrabajo");
+        lblLogo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/CompuTrabajoIcon.png"))); // NOI18N
+        lblLogo.setText("CompuTrabajo");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -63,14 +98,14 @@ public class MainFrame extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel1)
+                .addComponent(lblLogo)
                 .addContainerGap(84, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(jLabel1)
+                .addComponent(lblLogo)
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -244,12 +279,12 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnMenuDashboard;
     private javax.swing.JButton btnMenuPositions;
     private javax.swing.JButton btnMenuSettings;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel lblBreadCrumbs;
+    private javax.swing.JLabel lblLogo;
     private javax.swing.JPanel pnlMainContent;
     // End of variables declaration//GEN-END:variables
 }
