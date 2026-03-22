@@ -1,22 +1,69 @@
-//APORTE DE KARLA
-
-
-//COMENTARIO PRUEBA PARA VIDE DE COMMIT xd
-
 package Paneles;
 
-import utils.Navigation;
+ import utils.Navigation;
 
-public class PanelCrearVacante extends javax.swing.JPanel {
+    public class PanelCrearVacante extends javax.swing.JPanel {
 
-    private static final Navigation navigation = Navigation.getInstance();
-    
-    public PanelCrearVacante() {
-        initComponents();
-    }
+        private static final Navigation navigation = Navigation.getInstance();
 
-    
-    @SuppressWarnings("unchecked")
+        public PanelCrearVacante() {
+            initComponents();
+
+            txtDescriPuesto.setLineWrap(true);
+            txtDescriPuesto.setWrapStyleWord(true);
+            txtRequerimientos.setLineWrap(true);
+            txtRequerimientos.setWrapStyleWord(true);
+
+            javax.swing.ButtonGroup estadoGrupo = new javax.swing.ButtonGroup();
+            estadoGrupo.add(RadPuestoActivo);
+            estadoGrupo.add(RadPuestoPausado);
+            RadPuestoActivo.setSelected(true);
+            }
+
+            public void limpiarCampos() {
+            txtTituloPosicion.setText("");
+            txtDescriPuesto.setText("Detalle las responsabilidades principales...");
+            txtRequerimientos.setText("Liste los conocimientos tecnicos...");
+            txtSalarioMin.setText("$ Min");
+            txtSalarioMax.setText("$ Max");
+            cmbTipoContrato.setSelectedIndex(0);
+            cmbDepartamento.setSelectedIndex(0);
+            cmbUbicacion.setSelectedIndex(0);
+            jComboBox1.setSelectedIndex(0);
+            RadPuestoActivo.setSelected(true);
+            }
+
+            private void procesarFormulario(String accion) {
+
+            String titulo = txtTituloPosicion.getText().trim();
+            String tipoContrato = cmbTipoContrato.getSelectedItem().toString().trim();
+            String departamento = cmbDepartamento.getSelectedItem().toString().trim(); 
+            String ubicacion = cmbUbicacion.getSelectedItem().toString().trim();
+            String descripcion = txtDescriPuesto.getText().trim();
+            String requerimientos = txtRequerimientos.getText().trim();
+            String salMin = txtSalarioMin.getText().trim();
+            String salMax = txtSalarioMax.getText().trim();
+            String pipeline = jComboBox1.getSelectedItem().toString().trim()    ;
+            String estado = RadPuestoActivo.isSelected() ? "Activa" : "Pausada";
+
+            if (titulo.isEmpty() || titulo.equals("Titulo de la posición")) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Debe Ingresar Un Titulo Valido.");
+                return;
+            }
+
+            if (cmbTipoContrato.getSelectedIndex() <= 0 || cmbDepartamento.getSelectedIndex() <= 0) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Por Favor, Seleccione El Contrato Y El Departamento.");
+                return;
+            }
+
+            System.out.println("Accion: " + accion);
+            System.out.println("Publicando vacante: " + titulo + " en " + departamento);
+
+            javax.swing.JOptionPane.showMessageDialog(this, "Vacante procesada como: " + accion);
+
+            navigation.reset(new PanelGestionVacantes());
+        }
+        @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -35,13 +82,11 @@ public class PanelCrearVacante extends javax.swing.JPanel {
         cmbTipoContrato = new javax.swing.JComboBox<>();
         txtTituloPosicion = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        cmbTituloPosicion = new javax.swing.JComboBox<>();
+        cmbDepartamento = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         cmbUbicacion = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        txtDescriPuesto = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txtRequerimientos = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         txtSalarioMin = new javax.swing.JTextField();
         txtSalarioMax = new javax.swing.JTextField();
@@ -54,6 +99,10 @@ public class PanelCrearVacante extends javax.swing.JPanel {
         btnCancelarCrearVacante = new javax.swing.JButton();
         btnPublicarVacante = new javax.swing.JButton();
         btnBorradorVacante = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtDescriPuesto = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtRequerimientos = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
         lblBreadCrumbs = new javax.swing.JLabel();
         lblBreadCrumbs1 = new javax.swing.JLabel();
@@ -139,9 +188,9 @@ public class PanelCrearVacante extends javax.swing.JPanel {
             .addComponent(btnMenuPositions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnMenuApplicants, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnMenuApplicants1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnMenuSettings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnMenuDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnMenuSettings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,50 +235,47 @@ public class PanelCrearVacante extends javax.swing.JPanel {
         txtTituloPosicion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         txtTituloPosicion.addActionListener(this::txtTituloPosicionActionPerformed);
 
-        jLabel6.setText("Ttulo de la posicion");
+        jLabel6.setText("Departamento:");
 
-        cmbTituloPosicion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione departamento...", " ", "Santa Ana", "Ahuachapan", "Sonsonate", "Chalatenango", "La Libertad", "San Salvador", "Cuscatlan", "Cabañas", "La paz", "San Vicente", "Usulutan", "San Miguel", "Morazan", "La Union" }));
-        cmbTituloPosicion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        cmbDepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione departamento...", " ", "Santa Ana", "Ahuachapan", "Sonsonate", "Chalatenango", "La Libertad", "San Salvador", "Cuscatlan", "Cabañas", "La paz", "San Vicente", "Usulutan", "San Miguel", "Morazan", "La Union" }));
+        cmbDepartamento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        cmbDepartamento.addActionListener(this::cmbDepartamentoActionPerformed);
 
         jLabel7.setText("Ubicación");
 
         cmbUbicacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione Ubicacion...", " ", "Presencial", "Remoto", "Hibrido" }));
         cmbUbicacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        cmbUbicacion.addActionListener(this::cmbUbicacionActionPerformed);
 
         jLabel8.setText("Descripción de Puesto");
 
-        txtDescriPuesto.setForeground(new java.awt.Color(204, 204, 204));
-        txtDescriPuesto.setText("Detalle las responsabilidades principales...");
-        txtDescriPuesto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        txtDescriPuesto.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-
         jLabel9.setText("Requerimientos");
-
-        txtRequerimientos.setForeground(new java.awt.Color(204, 204, 204));
-        txtRequerimientos.setText("Liste los conocimientos técnicos y habilidades necesarias...");
-        txtRequerimientos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        txtRequerimientos.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jLabel10.setText("Rango Salarial");
 
         txtSalarioMin.setForeground(new java.awt.Color(204, 204, 204));
         txtSalarioMin.setText("$ Min");
+        txtSalarioMin.addActionListener(this::txtSalarioMinActionPerformed);
 
         txtSalarioMax.setForeground(new java.awt.Color(204, 204, 204));
         txtSalarioMax.setText("$ Max");
+        txtSalarioMax.addActionListener(this::txtSalarioMaxActionPerformed);
 
         jLabel11.setText("Pipeline de Selección");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione pipeline...", " ", "Postulado    -  Etapa 1", "CV Visto       -  Etapa 2", "En Proceso   -  Etapa 3", "Finalista        -  Etapa 4" }));
         jComboBox1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jComboBox1.addActionListener(this::jComboBox1ActionPerformed);
 
         jLabel12.setText("Estado");
 
         RadPuestoActivo.setText("Activa");
         RadPuestoActivo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        RadPuestoActivo.addActionListener(this::RadPuestoActivoActionPerformed);
 
         RadPuestoPausado.setText("Pausada");
         RadPuestoPausado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        RadPuestoPausado.addActionListener(this::RadPuestoPausadoActionPerformed);
 
         jLabel13.setForeground(new java.awt.Color(204, 204, 204));
         jLabel13.setText("___________________________________________________________________________________________________________");
@@ -237,12 +283,23 @@ public class PanelCrearVacante extends javax.swing.JPanel {
         btnCancelarCrearVacante.setBackground(new java.awt.Color(255, 204, 204));
         btnCancelarCrearVacante.setText("Cancelar");
         btnCancelarCrearVacante.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnCancelarCrearVacante.addActionListener(this::btnCancelarCrearVacanteActionPerformed);
 
         btnPublicarVacante.setBackground(new java.awt.Color(102, 102, 255));
         btnPublicarVacante.setForeground(new java.awt.Color(255, 255, 255));
         btnPublicarVacante.setText("Publicar Vacante");
+        btnPublicarVacante.addActionListener(this::btnPublicarVacanteActionPerformed);
 
         btnBorradorVacante.setText("Guardar Borrador");
+        btnBorradorVacante.addActionListener(this::btnBorradorVacanteActionPerformed);
+
+        txtDescriPuesto.setColumns(20);
+        txtDescriPuesto.setRows(5);
+        jScrollPane1.setViewportView(txtDescriPuesto);
+
+        txtRequerimientos.setColumns(20);
+        txtRequerimientos.setRows(5);
+        jScrollPane2.setViewportView(txtRequerimientos);
 
         javax.swing.GroupLayout pnlMainContentLayout = new javax.swing.GroupLayout(pnlMainContent);
         pnlMainContent.setLayout(pnlMainContentLayout);
@@ -266,6 +323,8 @@ public class PanelCrearVacante extends javax.swing.JPanel {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainContentLayout.createSequentialGroup()
                         .addGroup(pnlMainContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlMainContentLayout.createSequentialGroup()
                                 .addComponent(btnCancelarCrearVacante, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -273,9 +332,8 @@ public class PanelCrearVacante extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnPublicarVacante))
                             .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtDescriPuesto, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMainContentLayout.createSequentialGroup()
-                                .addComponent(cmbTituloPosicion, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cmbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(52, 52, 52)
                                 .addComponent(cmbUbicacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(pnlMainContentLayout.createSequentialGroup()
@@ -286,7 +344,6 @@ public class PanelCrearVacante extends javax.swing.JPanel {
                                 .addGroup(pnlMainContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cmbTipoContrato, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(txtRequerimientos, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMainContentLayout.createSequentialGroup()
                                 .addGroup(pnlMainContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -323,16 +380,16 @@ public class PanelCrearVacante extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlMainContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbTituloPosicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDescriPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtRequerimientos, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addGroup(pnlMainContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jLabel11))
@@ -453,6 +510,52 @@ public class PanelCrearVacante extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTituloPosicionActionPerformed
 
+    private void cmbDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDepartamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbDepartamentoActionPerformed
+
+    private void cmbUbicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbUbicacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbUbicacionActionPerformed
+
+    private void txtSalarioMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalarioMinActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSalarioMinActionPerformed
+
+    private void txtSalarioMaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalarioMaxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSalarioMaxActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void RadPuestoActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadPuestoActivoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RadPuestoActivoActionPerformed
+
+    private void RadPuestoPausadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadPuestoPausadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RadPuestoPausadoActionPerformed
+
+    private void btnCancelarCrearVacanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarCrearVacanteActionPerformed
+        int confirmar = javax.swing.JOptionPane.showConfirmDialog(this, 
+            "¿Esta seguro de cancelar? Se perderan los cambios", "Confirmar", 
+            javax.swing.JOptionPane.YES_NO_OPTION);
+            
+        if (confirmar == javax.swing.JOptionPane.YES_OPTION) {
+            navigation.reset(new PanelGestionVacantes());
+        }
+    }//GEN-LAST:event_btnCancelarCrearVacanteActionPerformed
+
+    private void btnBorradorVacanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorradorVacanteActionPerformed
+        procesarFormulario("BORRADOR");
+    }//GEN-LAST:event_btnBorradorVacanteActionPerformed
+
+    private void btnPublicarVacanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPublicarVacanteActionPerformed
+        procesarFormulario("PUBLICAR");
+    }//GEN-LAST:event_btnPublicarVacanteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton RadPuestoActivo;
@@ -465,8 +568,8 @@ public class PanelCrearVacante extends javax.swing.JPanel {
     private javax.swing.JButton btnMenuPositions;
     private javax.swing.JButton btnMenuSettings;
     private javax.swing.JButton btnPublicarVacante;
+    private javax.swing.JComboBox<String> cmbDepartamento;
     private javax.swing.JComboBox<String> cmbTipoContrato;
-    private javax.swing.JComboBox<String> cmbTituloPosicion;
     private javax.swing.JComboBox<String> cmbUbicacion;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -486,11 +589,13 @@ public class PanelCrearVacante extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblBreadCrumbs;
     private javax.swing.JLabel lblBreadCrumbs1;
     private javax.swing.JPanel pnlMainContent;
-    private javax.swing.JTextField txtDescriPuesto;
-    private javax.swing.JTextField txtRequerimientos;
+    private javax.swing.JTextArea txtDescriPuesto;
+    private javax.swing.JTextArea txtRequerimientos;
     private javax.swing.JTextField txtSalarioMax;
     private javax.swing.JTextField txtSalarioMin;
     private javax.swing.JTextField txtTituloPosicion;
