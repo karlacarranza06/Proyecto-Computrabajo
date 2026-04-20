@@ -1,14 +1,12 @@
 //APORTE DE MAURICIO
 package Paneles;
 
-
 public class PanelVerVacante extends javax.swing.JPanel implements ITraceablePanel {
 
 
     public PanelVerVacante() {
         initComponents();
     }
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -35,13 +33,13 @@ public class PanelVerVacante extends javax.swing.JPanel implements ITraceablePan
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        tlbVacantes = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jPanel12 = new javax.swing.JPanel();
+        pnlTarjetaVacante = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
@@ -98,17 +96,14 @@ public class PanelVerVacante extends javax.swing.JPanel implements ITraceablePan
         );
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Titulo Vacante");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Fecha de creación y Lugar");
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Activa/NoActiva");
         jLabel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 102), 1, true));
 
@@ -117,14 +112,11 @@ public class PanelVerVacante extends javax.swing.JPanel implements ITraceablePan
         btnCerrarVacante.setForeground(new java.awt.Color(255, 255, 255));
         btnCerrarVacante.setText("Cerrar Vacante");
 
-        btnEditarVacante.setBackground(new java.awt.Color(255, 255, 255));
         btnEditarVacante.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnEditarVacante.setForeground(new java.awt.Color(0, 0, 0));
         btnEditarVacante.setText("Editar");
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("DÍAS ABIERTA");
 
         jLabel4.setText("numDias");
@@ -155,7 +147,6 @@ public class PanelVerVacante extends javax.swing.JPanel implements ITraceablePan
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("TOTAL POSTULANTES");
 
         jLabel5.setText("numPostulantes");
@@ -186,7 +177,6 @@ public class PanelVerVacante extends javax.swing.JPanel implements ITraceablePan
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("NUEVOS HOY");
 
         jLabel6.setText("numNuevos");
@@ -217,7 +207,6 @@ public class PanelVerVacante extends javax.swing.JPanel implements ITraceablePan
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("MATCH PROMEDIO");
 
         jLabel12.setText("match");
@@ -254,8 +243,8 @@ public class PanelVerVacante extends javax.swing.JPanel implements ITraceablePan
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTabbedPane1.setForeground(new java.awt.Color(0, 102, 255));
+        tlbVacantes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tlbVacantes.setForeground(new java.awt.Color(0, 102, 255));
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -289,7 +278,7 @@ public class PanelVerVacante extends javax.swing.JPanel implements ITraceablePan
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
+        pnlTarjetaVacante.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Foto");
@@ -318,16 +307,16 @@ public class PanelVerVacante extends javax.swing.JPanel implements ITraceablePan
         btnVerPerfil.setForeground(new java.awt.Color(255, 255, 255));
         btnVerPerfil.setText("Ver Perfil");
 
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlTarjetaVacanteLayout = new javax.swing.GroupLayout(pnlTarjetaVacante);
+        pnlTarjetaVacante.setLayout(pnlTarjetaVacanteLayout);
+        pnlTarjetaVacanteLayout.setHorizontalGroup(
+            pnlTarjetaVacanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTarjetaVacanteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGroup(pnlTarjetaVacanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnlTarjetaVacanteLayout.createSequentialGroup()
                         .addComponent(jLabel25)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel26)
@@ -343,26 +332,26 @@ public class PanelVerVacante extends javax.swing.JPanel implements ITraceablePan
                 .addComponent(btnVerPerfil)
                 .addContainerGap())
         );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
+        pnlTarjetaVacanteLayout.setVerticalGroup(
+            pnlTarjetaVacanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTarjetaVacanteLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGroup(pnlTarjetaVacanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlTarjetaVacanteLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+                        .addGroup(pnlTarjetaVacanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
                             .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnVerPerfil))
                         .addContainerGap(22, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel12Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTarjetaVacanteLayout.createSequentialGroup()
+                        .addGroup(pnlTarjetaVacanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlTarjetaVacanteLayout.createSequentialGroup()
                                 .addComponent(jLabel19)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel24)
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(pnlTarjetaVacanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel25)
                                     .addComponent(jLabel26)
                                     .addComponent(jLabel27))
@@ -544,7 +533,7 @@ public class PanelVerVacante extends javax.swing.JPanel implements ITraceablePan
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlTarjetaVacante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -554,7 +543,7 @@ public class PanelVerVacante extends javax.swing.JPanel implements ITraceablePan
                 .addContainerGap()
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlTarjetaVacante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -562,7 +551,7 @@ public class PanelVerVacante extends javax.swing.JPanel implements ITraceablePan
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Postulantes(%)", jPanel3);
+        tlbVacantes.addTab("Postulantes(%)", jPanel3);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -577,7 +566,7 @@ public class PanelVerVacante extends javax.swing.JPanel implements ITraceablePan
             .addGap(0, 417, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Descripción de Vacantes", jPanel4);
+        tlbVacantes.addTab("Descripción de Vacantes", jPanel4);
 
         jLabel40.setText("Mostrando tal cantidad de postulantes");
 
@@ -632,7 +621,7 @@ public class PanelVerVacante extends javax.swing.JPanel implements ITraceablePan
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1)
+                    .addComponent(tlbVacantes)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -675,7 +664,7 @@ public class PanelVerVacante extends javax.swing.JPanel implements ITraceablePan
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tlbVacantes, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
@@ -710,8 +699,6 @@ public class PanelVerVacante extends javax.swing.JPanel implements ITraceablePan
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -747,9 +734,7 @@ public class PanelVerVacante extends javax.swing.JPanel implements ITraceablePan
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
@@ -760,13 +745,11 @@ public class PanelVerVacante extends javax.swing.JPanel implements ITraceablePan
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JProgressBar jProgressBar1;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JPanel pnlTarjetaVacante;
+    private javax.swing.JTabbedPane tlbVacantes;
     // End of variables declaration//GEN-END:variables
     @Override
     public String getTitle() {

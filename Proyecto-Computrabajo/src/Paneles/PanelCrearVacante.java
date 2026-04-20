@@ -1,5 +1,6 @@
 package Paneles;
 
+import javax.swing.JOptionPane;
  import utils.Navigation;
 
     public class PanelCrearVacante extends javax.swing.JPanel {
@@ -46,20 +47,28 @@ package Paneles;
             String pipeline = jComboBox1.getSelectedItem().toString().trim()    ;
             String estado = RadPuestoActivo.isSelected() ? "Activa" : "Pausada";
 
-            if (titulo.isEmpty() || titulo.equals("Titulo de la posición")) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Debe Ingresar Un Titulo Valido.");
+            if (titulo.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Debe Ingresar Un Titulo Valido.");
                 return;
             }
 
-            if (cmbTipoContrato.getSelectedIndex() <= 0 || cmbDepartamento.getSelectedIndex() <= 0) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Por Favor, Seleccione El Contrato Y El Departamento.");
+            if (cmbTipoContrato.getSelectedIndex() == 0) {
+                JOptionPane.showMessageDialog(this, "Por Favor, Seleccione el contrato y el departamento.");
                 return;
             }
-
-            System.out.println("Accion: " + accion);
-            System.out.println("Publicando vacante: " + titulo + " en " + departamento);
-
-            javax.swing.JOptionPane.showMessageDialog(this, "Vacante procesada como: " + accion);
+            if(accion.equals("PUBLICAR")){
+                System.out.println("Publicando vacante: " + titulo + " en " + departamento);
+            }else{
+            System.out.println("Borrador guradado ");
+            }
+            
+            String[] vacante = new String[]{
+                titulo, tipoContrato, departamento, ubicacion, descripcion, requerimientos, salMin, salMax, pipeline, estado
+            };
+            
+            navigation.vacantes.add(vacante);
+            
+            limpiarCampos();
 
             navigation.reset(new PanelGestionVacantes());
         }
@@ -503,39 +512,39 @@ package Paneles;
     }//GEN-LAST:event_btnMenuApplicants1ActionPerformed
 
     private void cmbTipoContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoContratoActionPerformed
-        // TODO add your handling code here:
+        // Vacio
     }//GEN-LAST:event_cmbTipoContratoActionPerformed
 
     private void txtTituloPosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloPosicionActionPerformed
-        // TODO add your handling code here:
+        // Vacio
     }//GEN-LAST:event_txtTituloPosicionActionPerformed
 
     private void cmbDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDepartamentoActionPerformed
-        // TODO add your handling code here:
+        // Vacio
     }//GEN-LAST:event_cmbDepartamentoActionPerformed
 
     private void cmbUbicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbUbicacionActionPerformed
-        // TODO add your handling code here:
+        // Vacio
     }//GEN-LAST:event_cmbUbicacionActionPerformed
 
     private void txtSalarioMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalarioMinActionPerformed
-        // TODO add your handling code here:
+        // Vacio
     }//GEN-LAST:event_txtSalarioMinActionPerformed
 
     private void txtSalarioMaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalarioMaxActionPerformed
-        // TODO add your handling code here:
+        // Vacio
     }//GEN-LAST:event_txtSalarioMaxActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+       // Vacio
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void RadPuestoActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadPuestoActivoActionPerformed
-        // TODO add your handling code here:
+        // Vacio
     }//GEN-LAST:event_RadPuestoActivoActionPerformed
 
     private void RadPuestoPausadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadPuestoPausadoActionPerformed
-        // TODO add your handling code here:
+        // Vacio
     }//GEN-LAST:event_RadPuestoPausadoActionPerformed
 
     private void btnCancelarCrearVacanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarCrearVacanteActionPerformed

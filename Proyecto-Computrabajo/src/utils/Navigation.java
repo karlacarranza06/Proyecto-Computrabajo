@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package utils;
 
 import Paneles.ITraceablePanel;
@@ -13,16 +10,17 @@ import java.util.Iterator;
 import javax.swing.JPanel;
 import proyecto.computrabajo.MainFrame;
 
-/**
- *
- * @author josue
- */
+
+
 public class Navigation {
     private javax.swing.JPanel mainPanel; 
     private final Deque<JPanel> navigationState = new ArrayDeque<>();
     private static Navigation instance;
     private javax.swing.JPanel currentPanel;
     private MainFrame mainFrame;
+    
+    public java.util.List<String[]> vacantes = new java.util.ArrayList<>();
+    
     private javax.swing.JLabel breadcrumbsLabel;
     
     public static Navigation getInstance() {
@@ -32,8 +30,6 @@ public class Navigation {
         
         return instance;
     }
-    
-    public Navigation() { }
     
     public void setBreadcrumbsLabel(javax.swing.JLabel breadcrumbsLabel) {
         this.breadcrumbsLabel = breadcrumbsLabel;
